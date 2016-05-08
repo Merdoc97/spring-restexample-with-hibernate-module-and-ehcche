@@ -1,0 +1,28 @@
+<!--for more information see Ehcache_Configuration_Guide or visit http://www.ehcache.org/-->
+<ehcache
+        noNamespaceSchemaLocation="ehcache.xsd"
+        updateCheck="true"
+        monitoring="autodetect"
+        dynamicConfig="false"
+        maxBytesLocalHeap="150M"
+        maxBytesLocalOffHeap="1G">
+
+    <diskStore path="java.io.tmpdir/ehcache"/>
+
+    <defaultCache
+            eternal="false"
+            timeToIdleSeconds="720"
+            timeToLiveSeconds="720"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU">
+    </defaultCache>
+
+    <cache name="entities"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="60"
+           timeToLiveSeconds="60"
+           maxElementsOnDisk="10000">
+    </cache>
+
+</ehcache>
