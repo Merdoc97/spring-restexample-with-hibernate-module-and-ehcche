@@ -2,8 +2,6 @@ package com.example.service;
 
 import com.example.model.GeneralEntity;
 import javassist.NotFoundException;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 

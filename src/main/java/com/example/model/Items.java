@@ -1,17 +1,10 @@
 package com.example.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import org.hibernate.annotations.*;
-import org.hibernate.annotations.Cache;
-import org.springframework.cache.annotation.*;
 import org.springframework.cache.annotation.Cacheable;
 
 import javax.persistence.*;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.List;
 
 /**
