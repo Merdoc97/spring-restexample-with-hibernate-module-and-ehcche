@@ -17,6 +17,10 @@ import org.springframework.stereotype.Repository;
 public interface ItemRepository extends CrudRepository<Items,Integer> {
 
     @Override
+    @Cacheable("entities")
+    Iterable<Items> findAll();
+
+    @Override
     @Query("select item from Items item left join fetch item.attributes where item.id=:id")
     Items findOne(@Param("id") Integer integer);
 }

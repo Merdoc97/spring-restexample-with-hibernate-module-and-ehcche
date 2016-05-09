@@ -18,7 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableCaching
 @EnableJpaRepositories("com.example")
-@ImportResource({"classpath:appconfig.xml", "classpath:serviceBeans.xml"})
+@ImportResource({"classpath:appconfig.xml"})
 @EnableSwagger2
 public class Config {
     @Bean

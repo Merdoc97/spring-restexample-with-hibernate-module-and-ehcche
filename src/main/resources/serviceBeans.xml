@@ -7,4 +7,8 @@
         <constructor-arg name="repository" ref="itemRepository"/>
     </bean>
 
+    <bean id="itemAttribute" class="com.example.service.GeneralService">
+        <constructor-arg name="repository" ref="itemAttrributeRepository"/>
+    </bean>
+
 </beans>

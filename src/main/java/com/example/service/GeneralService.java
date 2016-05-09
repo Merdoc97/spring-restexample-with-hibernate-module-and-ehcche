@@ -29,7 +29,6 @@ public class GeneralService<T> {
      * @return entity which registered in repository
      */
     @Transactional(readOnly = true)
-    @Cacheable(value = "entities")
     public List<T> getAll() {
         return (List<T>) repository.findAll();
     }
@@ -39,14 +38,12 @@ public class GeneralService<T> {
      * @return entity registered in repository
      */
     @Transactional(readOnly = true)
-    @Cacheable(value = "entities", key = "#id")
     public T getById(Number id) {
         return repository.findOne(id);
     }
 
     @Transactional(rollbackFor = Exception.class)
     //clear entity from cache by id after update
-    @CacheEvict(value = "entities", key = "#entity.id")
     public T update(T entity) throws NotFoundException {
         GeneralEntity generalEntity = (GeneralEntity) entity;
         if (generalEntity.getId() == null) {
@@ -66,7 +63,6 @@ public class GeneralService<T> {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(value = "entities", key = "#id")
     public void delete(Number id) {
         repository.delete(id);
     }

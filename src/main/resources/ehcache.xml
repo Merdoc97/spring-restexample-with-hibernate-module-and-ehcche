@@ -25,4 +25,12 @@
            maxElementsOnDisk="10000">
     </cache>
 
+    <cache name="attributes"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="60"
+           timeToLiveSeconds="60"
+           maxElementsOnDisk="10000">
+    </cache>
+
 </ehcache>

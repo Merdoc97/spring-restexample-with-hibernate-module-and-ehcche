@@ -1,13 +1,16 @@
 package com.example.model;
 
+import org.springframework.cache.annotation.*;
+
 import javax.persistence.*;
 
 /**
  * Created by artyo on 08.05.2016.
  */
 @Entity
+@org.springframework.cache.annotation.Cacheable
 @Table(name = "item_attr")
-public class ItemAttributes {
+public class ItemAttributes implements GeneralEntity{
     @Id
     @GeneratedValue
     @Column(name = "attr_id")

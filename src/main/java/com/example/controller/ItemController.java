@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.model.ItemAttributes;
 import com.example.model.Items;
 import com.example.service.GeneralService;
 import javassist.NotFoundException;
@@ -21,6 +22,10 @@ public class ItemController {
     @Autowired
     @Qualifier(value = "itemService")
     GeneralService generalService;
+
+    @Autowired
+    @Qualifier("itemAttribute")
+    GeneralService attributeService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<Items> getAllItems() {
@@ -48,5 +53,8 @@ public class ItemController {
         return HttpStatus.OK;
     }
 
-
+    @RequestMapping(value = "/attr/",method = RequestMethod.GET)
+    public List<ItemAttributes> getAllAttr(){
+        return attributeService.getAll();
+    }
 }
