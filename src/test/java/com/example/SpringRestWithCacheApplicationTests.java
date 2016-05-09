@@ -11,10 +11,12 @@ import org.junit.runners.Parameterized;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,7 +38,7 @@ public class SpringRestWithCacheApplicationTests {
 
     public SpringRestWithCacheApplicationTests(String beanName) {
         this.beanName = beanName;
-        context = new GenericXmlApplicationContext("appconfig.xml");
+        context = new GenericXmlApplicationContext("appconfigTest.xml");
         this.generalService = (GeneralService) context.getBean(beanName);
     }
 
