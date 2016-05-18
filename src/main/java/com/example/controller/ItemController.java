@@ -2,11 +2,13 @@ package com.example.controller;
 
 import com.example.model.ItemAttributes;
 import com.example.model.Items;
+import com.example.service.CustomService;
 import com.example.service.GeneralService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +28,17 @@ public class ItemController {
     @Autowired
     @Qualifier("itemAttribute")
     GeneralService attributeService;
+
+    @Autowired
+    @Qualifier("customService")
+    private CustomService customService;
+
+    @RequestMapping(value = "/withdep/",method = RequestMethod.GET)
+    public List<Items>getAllwithDep(){
+        List<Items>res=customService.getAllWithDep();
+
+        return res;
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<Items> getAllItems() {
