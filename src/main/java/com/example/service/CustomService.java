@@ -1,10 +1,7 @@
 package com.example.service;
 
 import com.example.dao.ItemRepository;
-import com.example.model.ItemAttrDep;
-import com.example.model.ItemAttributes;
 import com.example.model.Items;
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -24,11 +21,11 @@ public class CustomService {
     @Transactional(readOnly = true)
     public List<Items> getAllWithDep(){
         List<Items>res= (List<Items>) itemRepository.findAll();
-        for (Items items:res){
+        /*for (Items items:res){
             for (ItemAttributes attributes:items.getAttributes())
                 Hibernate.initialize(attributes.getAttrDeps());
 
-        }
+        }*/
         return res;
     }
 }

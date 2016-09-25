@@ -1,3 +1,4 @@
+
 DELETE FROM item_attr_dep;
 DELETE FROM item_attr;
 DELETE FROM items;
